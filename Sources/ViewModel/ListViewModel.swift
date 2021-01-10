@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  ListViewModel.swift
 //  BookStore
 //
 //  Created by emile on 10/01/2021.
@@ -7,14 +7,15 @@
 
 import Foundation
 
-final class ViewModel {
+final class ListViewModel {
     
-    private var items = [Book]()
+    @Published var items = [Book]()
     
     private let service: Service
     
     init(service: Service = RemoteService()) {
         self.service = RemoteService()
+        load()
     }
     
     func load() {
@@ -24,7 +25,7 @@ final class ViewModel {
         service.fetch(endpoint: StoreEndPoint.volumes, params: params) { (result: Result<Response, ServiceError>) in
             DispatchQueue.main.sync {
                 switch result {
-                case .success(let response): self.items = response.items
+                case .success(let response): self.items = response.books
                 case .failure(let error): print(error)
                 }
             }
