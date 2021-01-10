@@ -9,7 +9,7 @@ import Foundation
 
 enum StoreEndPoint: EndPoint {
     
-    case characters(q: String = "iOS", start: Int = 0, max: Int = 100)
+    case volumes
     
     var baseURL: URL {
         return URL(string: "https://www.googleapis.com/books/v1/")!
@@ -17,7 +17,7 @@ enum StoreEndPoint: EndPoint {
     
     var path: String {
         switch self {
-        case .characters: return "volumes"
+        case .volumes: return "volumes"
         }
     }
     
