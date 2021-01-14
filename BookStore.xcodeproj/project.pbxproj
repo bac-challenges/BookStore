@@ -20,6 +20,7 @@
 		606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B450B25AB4CAA00ADE68C /* UIView.swift */; };
 		606B451125AB4CE200ADE68C /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451025AB4CE200ADE68C /* Configurable.swift */; };
 		606B451525AB4CFE00ADE68C /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451425AB4CFE00ADE68C /* ReusableCell.swift */; };
+		606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451C25ABA51F00ADE68C /* BookViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		606B450B25AB4CAA00ADE68C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		606B451025AB4CE200ADE68C /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		606B451425AB4CFE00ADE68C /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		606B451C25ABA51F00ADE68C /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				606B44FF25AB3E5C00ADE68C /* ListViewModel.swift */,
+				606B451C25ABA51F00ADE68C /* BookViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				606B450025AB3E5C00ADE68C /* ListViewModel.swift in Sources */,
 				606B44F225AB389600ADE68C /* StoreEndPoint.swift in Sources */,
 				606B44B725AB318200ADE68C /* BookList.swift in Sources */,
+				606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */,
 				606B44FC25AB3BE900ADE68C /* Book.swift in Sources */,
 				606B44B325AB318200ADE68C /* AppDelegate.swift in Sources */,
 				606B451125AB4CE200ADE68C /* Configurable.swift in Sources */,

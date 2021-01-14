@@ -10,7 +10,7 @@ import Combine
 
 class BookList: UITableViewController {
 
-    var items = [Book]()
+    var items = [BookViewModel]()
     var viewModel: ListViewModel!
     var subscriptions = Set<AnyCancellable>()
     
@@ -59,8 +59,15 @@ extension BookList {
         let item = items[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = item.id
+        cell.textLabel?.text = item.title
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
+extension BookList {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(UIViewController(), animated: true)
+    }
+}

@@ -9,12 +9,12 @@ import Foundation
 
 final class ListViewModel {
     
-    @Published var items = [Book]()
+    @Published var items = [BookViewModel]()
     
     private let service: Service
     
     init(service: Service = RemoteService()) {
-        self.service = RemoteService()
+        self.service = service
         load()
     }
     
@@ -25,7 +25,12 @@ final class ListViewModel {
         service.fetch(endpoint: StoreEndPoint.volumes, params: params) { (result: Result<Response, ServiceError>) in
             DispatchQueue.main.sync {
                 switch result {
-                case .success(let response): self.items = response.books
+                case .success(let response): self.items = response.books.map {
+                    BookViewModel(title: $0.info.title,
+                                  authors: $0.info.authors,
+                                  description: $0.info.description,
+                                  image: $0.image?.big)
+                }
                 case .failure(let error): print(error)
                 }
             }
