@@ -5,11 +5,12 @@
 //  Created by emile on 10/01/2021.
 //
 
-import UIKit
+import Foundation
 
-struct BookViewModel: Hashable {
+struct BookViewModel {
     let title: String
     let authors: [String]?
     let description: String
     var image: String
+    var buyLink: String?
 }

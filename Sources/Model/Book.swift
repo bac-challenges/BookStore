@@ -35,11 +35,17 @@ struct Book: Codable {
         let big: String
     }
     
+    struct SaleInfo: Codable {
+        let buyLink: String?
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case info = "volumeInfo"
+        case saleInfo = "saleInfo"
     }
     
     let id: String
     let info: Info
+    let saleInfo: SaleInfo
 }

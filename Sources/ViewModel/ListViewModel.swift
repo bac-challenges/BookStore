@@ -29,7 +29,8 @@ final class ListViewModel {
                     BookViewModel(title: $0.info.title,
                                   authors: $0.info.authors,
                                   description: $0.info.description,
-                                  image: $0.info.image.big)
+                                  image: $0.info.image.big,
+                                  buyLink: $0.saleInfo.buyLink)
                 }
                 case .failure(let error): print(error)
                 }

@@ -142,8 +142,16 @@
 			children = (
 				606B44B625AB318200ADE68C /* BookList.swift */,
 				606B452225B0687B00ADE68C /* DetailView.swift */,
+				607D44FD25B5512D00CE69AF /* Cells */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		607D44FD25B5512D00CE69AF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
