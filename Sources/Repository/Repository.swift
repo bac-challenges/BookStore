@@ -10,6 +10,7 @@ import Foundation
 final class Repository {
     
     @Published var items = [BookViewModel]()
+    @Published var isFiltered = false
     
     private var originalItems = [BookViewModel]()
     private var localItems = [String]()
@@ -54,10 +55,12 @@ final class Repository {
 
 // MARK: - Favourites
 extension Repository {
-    func filterFavourites() {
+    func toggleFilterFavourites() {
         localService.load { items in
             self.localItems = items
         }
+        
+        isFiltered.toggle()
         
         items = originalItems.map { item in
             var _item = item
@@ -65,6 +68,10 @@ extension Repository {
             return _item
         }.filter { item in
             item.favourite
+        }
+        
+        if !isFiltered {
+            items = originalItems
         }
     }
     

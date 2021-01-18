@@ -111,6 +111,7 @@ extension DetailView {
     }
 }
 
+// MARK: - ACtions
 extension DetailView {
     @objc private func buy() {
         if let url = item.buyLink {

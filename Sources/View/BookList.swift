@@ -13,7 +13,7 @@ private let reuseIdentifier = "Cell"
 class BookList: UICollectionViewController {
 
     var items = [BookViewModel]()
-    var repository: Repository?
+    var repository: Repository!
     var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -36,6 +36,15 @@ extension BookList {
         title = "Books"
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.backgroundColor = .white
+        
+        updateView()
+    }
+    
+    private func updateView() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: repository.isFiltered ? "star.fill":"star"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(toggleFilter))
     }
 }
 
@@ -49,6 +58,20 @@ extension BookList {
                 self?.collectionView.reloadData()
             }
             .store(in: &subscriptions)
+        
+        repository?.$isFiltered
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isFiltered in
+                self?.updateView()
+            }
+            .store(in: &subscriptions)
+    }
+}
+
+// MARK: - ACtions
+extension BookList {
+    @objc private func toggleFilter() {
+        repository.toggleFilterFavourites()
     }
 }
 
