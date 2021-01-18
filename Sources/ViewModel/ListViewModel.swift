@@ -21,7 +21,7 @@ final class ListViewModel {
     func load() {
         
         let params = ["q": "iOS", "start": "0", "max": "100"]
-        
+
         service.fetch(endpoint: StoreEndPoint.volumes, params: params) { (result: Result<Response, ServiceError>) in
             DispatchQueue.main.sync {
                 switch result {
@@ -29,7 +29,7 @@ final class ListViewModel {
                     BookViewModel(title: $0.info.title,
                                   authors: $0.info.authors,
                                   description: $0.info.description,
-                                  image: $0.image?.big)
+                                  image: $0.info.image.big)
                 }
                 case .failure(let error): print(error)
                 }

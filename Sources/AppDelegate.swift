@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let service = RemoteService()
         let viewModel = ListViewModel(service: service)
         
-        let controller = BookList()
+        let controller = BookList(collectionViewLayout: UICollectionViewFlowLayout())
         controller.viewModel = viewModel
         return controller
     }

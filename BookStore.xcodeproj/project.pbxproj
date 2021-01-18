@@ -18,9 +18,8 @@
 		606B44FC25AB3BE900ADE68C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44FB25AB3BE900ADE68C /* Book.swift */; };
 		606B450025AB3E5C00ADE68C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44FF25AB3E5C00ADE68C /* ListViewModel.swift */; };
 		606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B450B25AB4CAA00ADE68C /* UIView.swift */; };
-		606B451125AB4CE200ADE68C /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451025AB4CE200ADE68C /* Configurable.swift */; };
-		606B451525AB4CFE00ADE68C /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451425AB4CFE00ADE68C /* ReusableCell.swift */; };
 		606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451C25ABA51F00ADE68C /* BookViewModel.swift */; };
+		606B452325B0687B00ADE68C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B452225B0687B00ADE68C /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +36,9 @@
 		606B44FB25AB3BE900ADE68C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		606B44FF25AB3E5C00ADE68C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		606B450B25AB4CAA00ADE68C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		606B451025AB4CE200ADE68C /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
-		606B451425AB4CFE00ADE68C /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		606B451C25ABA51F00ADE68C /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		606B452225B0687B00ADE68C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		607D44F725B546DB00CE69AF /* BookStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BookStore.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +86,7 @@
 		606B44C825AB31FB00ADE68C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				607D44F725B546DB00CE69AF /* BookStore.entitlements */,
 				606B44BB25AB318700ADE68C /* Assets.xcassets */,
 				606B44BD25AB318700ADE68C /* LaunchScreen.storyboard */,
 				606B44C025AB318700ADE68C /* Info.plist */,
@@ -106,7 +106,6 @@
 		606B44F425AB3A9800ADE68C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				606B450F25AB4CC800ADE68C /* Protocols */,
 				606B450A25AB4C9000ADE68C /* Extensions */,
 			);
 			path = Utility;
@@ -138,19 +137,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		606B450F25AB4CC800ADE68C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				606B451025AB4CE200ADE68C /* Configurable.swift */,
-				606B451425AB4CFE00ADE68C /* ReusableCell.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		606B451725AB4DA200ADE68C /* View */ = {
 			isa = PBXGroup;
 			children = (
 				606B44B625AB318200ADE68C /* BookList.swift */,
+				606B452225B0687B00ADE68C /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				606B451525AB4CFE00ADE68C /* ReusableCell.swift in Sources */,
+				606B452325B0687B00ADE68C /* DetailView.swift in Sources */,
 				606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */,
 				606B450025AB3E5C00ADE68C /* ListViewModel.swift in Sources */,
 				606B44F225AB389600ADE68C /* StoreEndPoint.swift in Sources */,
@@ -233,7 +224,6 @@
 				606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */,
 				606B44FC25AB3BE900ADE68C /* Book.swift in Sources */,
 				606B44B325AB318200ADE68C /* AppDelegate.swift in Sources */,
-				606B451125AB4CE200ADE68C /* Configurable.swift in Sources */,
 				606B44EE25AB381000ADE68C /* Service.swift in Sources */,
 				606B44F925AB3B2800ADE68C /* Response.swift in Sources */,
 			);
@@ -374,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Resources/Async Image Loading.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4634TQ4N3J;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -393,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Resources/Async Image Loading.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4634TQ4N3J;
 				INFOPLIST_FILE = Resources/Info.plist;

@@ -8,10 +8,12 @@
 import UIKit
 import Combine
 
-class BookList: UITableViewController {
+private let reuseIdentifier = "Cell"
+
+class BookList: UICollectionViewController {
 
     var items = [BookViewModel]()
-    var viewModel: ListViewModel!
+    var viewModel: ListViewModel?
     var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -19,55 +21,74 @@ class BookList: UITableViewController {
         setupBinding()
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.load()
+    }
 }
 
 // MARK: - UI
 extension BookList {
+    
     private func setupView() {
         title = "Books"
-        tableView = UITableView(frame: CGRect.zero, style: .plain)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView.backgroundColor = .white
     }
 }
 
 // MARK: - Binding
 extension BookList {
     private func setupBinding() {
-        viewModel.$items
+        viewModel?.$items
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
                 self?.items = items
-                self?.tableView.reloadData()
+                self?.collectionView.reloadData()
             }
             .store(in: &subscriptions)
     }
 }
 
-// MARK: - UITableViewDataSource
-extension BookList {
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+// MARK: - UICollectionViewDelegateFlowLayout
+extension BookList: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let numberOfSets = CGFloat(2)
+        
+        let width = (collectionView.frame.size.width - (numberOfSets * view.frame.size.width / 15))/numberOfSets
+        
+        let height = width
+        
+        return CGSize(width: width, height: height)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
+
+}
+
+// MARK: - UICollectionViewDataSource
+extension BookList {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let item = items[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = item.title
-        return cell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        myCell.backgroundColor = UIColor.blue
+        return myCell
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UICollectionViewDelegate
 extension BookList {
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(UIViewController(), animated: true)
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        let vc = DetailView()
+        vc.item = item
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
