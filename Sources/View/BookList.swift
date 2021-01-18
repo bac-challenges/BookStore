@@ -20,12 +20,11 @@ class BookList: UICollectionViewController {
         super.viewDidLoad()
         setupBinding()
         setupView()
-        repository?.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        repository.load()
     }
 }
 
@@ -34,14 +33,10 @@ extension BookList {
     
     private func setupView() {
         title = "Books"
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView.register(BookListCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = .white
         
-        updateView()
-    }
-    
-    private func updateView() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: repository.isFiltered ? "star.fill":"star"),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(toggleFilter))
@@ -51,24 +46,17 @@ extension BookList {
 // MARK: - Binding
 extension BookList {
     private func setupBinding() {
-        repository?.$items
+        repository.$items
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
                 self?.items = items
                 self?.collectionView.reloadData()
             }
             .store(in: &subscriptions)
-        
-        repository?.$isFiltered
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] isFiltered in
-                self?.updateView()
-            }
-            .store(in: &subscriptions)
     }
 }
 
-// MARK: - ACtions
+// MARK: - Actions
 extension BookList {
     @objc private func toggleFilter() {
         repository.toggleFilterFavourites()
@@ -101,9 +89,12 @@ extension BookList {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
-        myCell.backgroundColor = UIColor.blue
-        return myCell
+        
+        let item = items[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! BookListCell
+        cell.configure(item: item)
+        return cell
     }
 }
 

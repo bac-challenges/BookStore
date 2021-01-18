@@ -10,7 +10,7 @@ import Foundation
 final class Repository {
     
     @Published var items = [BookViewModel]()
-    @Published var isFiltered = false
+    private var isFiltered = false
     
     private var originalItems = [BookViewModel]()
     private var localItems = [String]()
@@ -43,8 +43,8 @@ final class Repository {
                                   image: $0.info.image.big,
                                   buyLink: $0.saleInfo.buyLink,
                                   favourite: self.localItems.contains($0.id))
-                }
-                self.originalItems = self.items
+                    }
+                    self.originalItems = self.items
                 case .failure(let error): print(error)
                 }
             }
@@ -87,6 +87,10 @@ extension Repository {
                 addFavourite(id: id)
             } else {
                 removeFavourite(id: id)
+            }
+            
+            if localItems.count == 0 {
+                isFiltered = false
             }
         }
     }

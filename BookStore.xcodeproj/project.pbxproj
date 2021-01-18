@@ -20,6 +20,8 @@
 		606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B450B25AB4CAA00ADE68C /* UIView.swift */; };
 		606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451C25ABA51F00ADE68C /* BookViewModel.swift */; };
 		606B452325B0687B00ADE68C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B452225B0687B00ADE68C /* DetailView.swift */; };
+		60A7947F25B5ACD800A38A48 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A7947E25B5ACD800A38A48 /* UIImageView.swift */; };
+		60A7948225B5AD1A00A38A48 /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A7948125B5AD1A00A38A48 /* BookListCell.swift */; };
 		60CA8F4D25B5766E0015BEBB /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CA8F4C25B5766E0015BEBB /* LocalService.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		606B451C25ABA51F00ADE68C /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		606B452225B0687B00ADE68C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		607D44F725B546DB00CE69AF /* BookStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BookStore.entitlements; sourceTree = "<group>"; };
+		60A7947E25B5ACD800A38A48 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		60A7948125B5AD1A00A38A48 /* BookListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCell.swift; sourceTree = "<group>"; };
 		60CA8F4C25B5766E0015BEBB /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				606B450B25AB4CAA00ADE68C /* UIView.swift */,
+				60A7947E25B5ACD800A38A48 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 		607D44FD25B5512D00CE69AF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				60A7948125B5AD1A00A38A48 /* BookListCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -239,6 +245,8 @@
 				606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */,
 				606B450025AB3E5C00ADE68C /* Repository.swift in Sources */,
 				606B44F225AB389600ADE68C /* StoreEndPoint.swift in Sources */,
+				60A7948225B5AD1A00A38A48 /* BookListCell.swift in Sources */,
+				60A7947F25B5ACD800A38A48 /* UIImageView.swift in Sources */,
 				606B44B725AB318200ADE68C /* BookList.swift in Sources */,
 				606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */,
 				606B44FC25AB3BE900ADE68C /* Book.swift in Sources */,
