@@ -9,9 +9,10 @@ import UIKit
 
 class DetailView: UIViewController {
 
+    var repository: Repository!
     var item: BookViewModel!
         
-    private let container: UIStackView = {
+    private lazy var container: UIStackView = {
         let sv = UIStackView()
         sv.axis  = .vertical
         sv.spacing = 10
@@ -20,7 +21,7 @@ class DetailView: UIViewController {
         return sv
     }()
 
-    let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = UIColor.darkGray
@@ -30,7 +31,7 @@ class DetailView: UIViewController {
         return label
     }()
     
-    let authorLabel: UILabel = {
+    private lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.darkGray
@@ -40,7 +41,7 @@ class DetailView: UIViewController {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.darkGray
@@ -80,16 +81,33 @@ extension DetailView {
     }
     
     private func updateView() {
+        reset()
         titleLabel.text = item.title
         authorLabel.text = item.authors?.joined(separator: ", ")
         descriptionLabel.text = item.description
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: item.favourite ? "star.fill":"star"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(toggleFavourite))
+        
         if let _ = item.buyLink {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Buy",
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: #selector(buy))
+            
+            let button = UIBarButtonItem(title: "Buy",
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(buy))
+            
+            navigationItem.rightBarButtonItems?.append(button)
         }
+    }
+    
+    private func reset() {
+        titleLabel.text = ""
+        authorLabel.text = ""
+        descriptionLabel.text = ""
+        
+        navigationItem.rightBarButtonItems = []
     }
 }
 
@@ -99,5 +117,11 @@ extension DetailView {
             guard let url = URL(string: url) else { return }
             UIApplication.shared.open(url)
         }
+    }
+    
+    @objc private func toggleFavourite() {
+        repository.toggleFavourite(id: item.id)
+        item.favourite.toggle()
+        updateView()
     }
 }

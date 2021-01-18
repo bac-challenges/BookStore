@@ -8,9 +8,11 @@
 import Foundation
 
 struct BookViewModel {
+    let id: String
     let title: String
     let authors: [String]?
     let description: String
-    var image: String
-    var buyLink: String?
+    let image: String
+    let buyLink: String?
+    var favourite: Bool = false
 }

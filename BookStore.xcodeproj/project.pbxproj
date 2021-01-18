@@ -12,14 +12,15 @@
 		606B44BC25AB318700ADE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606B44BB25AB318700ADE68C /* Assets.xcassets */; };
 		606B44BF25AB318700ADE68C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 606B44BD25AB318700ADE68C /* LaunchScreen.storyboard */; };
 		606B44E525AB344C00ADE68C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 606B44E425AB344C00ADE68C /* README.md */; };
-		606B44EE25AB381000ADE68C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44ED25AB381000ADE68C /* Service.swift */; };
+		606B44EE25AB381000ADE68C /* RemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44ED25AB381000ADE68C /* RemoteService.swift */; };
 		606B44F225AB389600ADE68C /* StoreEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44F125AB389600ADE68C /* StoreEndPoint.swift */; };
 		606B44F925AB3B2800ADE68C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44F825AB3B2800ADE68C /* Response.swift */; };
 		606B44FC25AB3BE900ADE68C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44FB25AB3BE900ADE68C /* Book.swift */; };
-		606B450025AB3E5C00ADE68C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44FF25AB3E5C00ADE68C /* ListViewModel.swift */; };
+		606B450025AB3E5C00ADE68C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B44FF25AB3E5C00ADE68C /* Repository.swift */; };
 		606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B450B25AB4CAA00ADE68C /* UIView.swift */; };
 		606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B451C25ABA51F00ADE68C /* BookViewModel.swift */; };
 		606B452325B0687B00ADE68C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B452225B0687B00ADE68C /* DetailView.swift */; };
+		60CA8F4D25B5766E0015BEBB /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CA8F4C25B5766E0015BEBB /* LocalService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,15 +31,16 @@
 		606B44BE25AB318700ADE68C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		606B44C025AB318700ADE68C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		606B44E425AB344C00ADE68C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		606B44ED25AB381000ADE68C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		606B44ED25AB381000ADE68C /* RemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteService.swift; sourceTree = "<group>"; };
 		606B44F125AB389600ADE68C /* StoreEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEndPoint.swift; sourceTree = "<group>"; };
 		606B44F825AB3B2800ADE68C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		606B44FB25AB3BE900ADE68C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		606B44FF25AB3E5C00ADE68C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		606B44FF25AB3E5C00ADE68C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		606B450B25AB4CAA00ADE68C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		606B451C25ABA51F00ADE68C /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		606B452225B0687B00ADE68C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		607D44F725B546DB00CE69AF /* BookStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BookStore.entitlements; sourceTree = "<group>"; };
+		60CA8F4C25B5766E0015BEBB /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				606B44B225AB318200ADE68C /* AppDelegate.swift */,
 				606B451725AB4DA200ADE68C /* View */,
 				606B44F625AB3AA800ADE68C /* ViewModel */,
+				60CA8F5225B57A0E0015BEBB /* Repository */,
 				606B44F725AB3ADB00ADE68C /* Model */,
 				606B44EC25AB380100ADE68C /* Service */,
 				606B44F425AB3A9800ADE68C /* Utility */,
@@ -98,7 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				606B44F125AB389600ADE68C /* StoreEndPoint.swift */,
-				606B44ED25AB381000ADE68C /* Service.swift */,
+				606B44ED25AB381000ADE68C /* RemoteService.swift */,
+				60CA8F4C25B5766E0015BEBB /* LocalService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -114,7 +118,6 @@
 		606B44F625AB3AA800ADE68C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				606B44FF25AB3E5C00ADE68C /* ListViewModel.swift */,
 				606B451C25ABA51F00ADE68C /* BookViewModel.swift */,
 			);
 			path = ViewModel;
@@ -152,6 +155,14 @@
 			children = (
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		60CA8F5225B57A0E0015BEBB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				606B44FF25AB3E5C00ADE68C /* Repository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,13 +237,14 @@
 			files = (
 				606B452325B0687B00ADE68C /* DetailView.swift in Sources */,
 				606B450C25AB4CAA00ADE68C /* UIView.swift in Sources */,
-				606B450025AB3E5C00ADE68C /* ListViewModel.swift in Sources */,
+				606B450025AB3E5C00ADE68C /* Repository.swift in Sources */,
 				606B44F225AB389600ADE68C /* StoreEndPoint.swift in Sources */,
 				606B44B725AB318200ADE68C /* BookList.swift in Sources */,
 				606B451D25ABA51F00ADE68C /* BookViewModel.swift in Sources */,
 				606B44FC25AB3BE900ADE68C /* Book.swift in Sources */,
 				606B44B325AB318200ADE68C /* AppDelegate.swift in Sources */,
-				606B44EE25AB381000ADE68C /* Service.swift in Sources */,
+				606B44EE25AB381000ADE68C /* RemoteService.swift in Sources */,
+				60CA8F4D25B5766E0015BEBB /* LocalService.swift in Sources */,
 				606B44F925AB3B2800ADE68C /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

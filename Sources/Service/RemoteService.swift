@@ -1,5 +1,5 @@
 //
-//  Service.swift
+// RemoteService.swift
 //  BookStore
 //
 //  Created by emile on 10/01/2021.
@@ -27,11 +27,11 @@ enum ServiceError: Error {
     case networkError(error: Error)
 }
 
-protocol Service {
+protocol RemoteServiceProtocol {
     func fetch<T: Codable>(endpoint: EndPoint, params: [String: String]?, completionHandler: @escaping (Result<T, ServiceError>) -> Void)
 }
 
-struct RemoteService: Service {
+struct RemoteService: RemoteServiceProtocol {
     
     let decoder: JSONDecoder
     

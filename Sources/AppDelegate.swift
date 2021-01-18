@@ -22,11 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func rootViewController() -> UIViewController {
         
-        let service = RemoteService()
-        let viewModel = ListViewModel(service: service)
+        let repository = Repository()
         
         let controller = BookList(collectionViewLayout: UICollectionViewFlowLayout())
-        controller.viewModel = viewModel
+        controller.repository = repository
         return controller
     }
 }

@@ -13,18 +13,19 @@ private let reuseIdentifier = "Cell"
 class BookList: UICollectionViewController {
 
     var items = [BookViewModel]()
-    var viewModel: ListViewModel?
+    var repository: Repository?
     var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
         setupView()
+        repository?.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.load()
+        
     }
 }
 
@@ -41,7 +42,7 @@ extension BookList {
 // MARK: - Binding
 extension BookList {
     private func setupBinding() {
-        viewModel?.$items
+        repository?.$items
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
                 self?.items = items
@@ -88,6 +89,7 @@ extension BookList {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         let vc = DetailView()
+        vc.repository = repository
         vc.item = item
         navigationController?.pushViewController(vc, animated: true)
     }
